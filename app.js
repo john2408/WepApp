@@ -1,3 +1,5 @@
+
+// Packages Load
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
@@ -7,6 +9,7 @@ var expressHsb = require('express-handlebars');
 
 var indexRouter = require('./routes/index');
 
+// Create Express App object
 var app = express();
 
 // view engine setup
@@ -26,6 +29,8 @@ app.use(function(req, res, next) {
   next(createError(404));
 });
 
+app.use(express.static(__dirname + '/public'))
+
 // error handler
 app.use(function(err, req, res, next) {
   // set locals, only providing error in development
@@ -37,6 +42,6 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-app.listen(8080, () => {console.log("server is starting at port ", 8000) });
+app.listen(8080, () => {console.log("server is starting at port ", 8080) });
 
 module.exports = app;

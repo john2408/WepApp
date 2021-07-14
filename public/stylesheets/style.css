@@ -1,0 +1,20 @@
+.thumbnail img{
+    max-height: 300px;   
+}
+
+.thumbnail{
+    background: #fee0ff;
+}
+
+.thumbnail description{
+    color:rgb(77, 74, 74)
+}
+
+.navbar-default{
+    background-color:#fee0ff;
+}
+
+.price{
+    font-weight: bold;
+    font-size: 16px;
+}

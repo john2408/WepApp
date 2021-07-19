@@ -3,9 +3,9 @@ const mongoose = require('mongoose');
 
 
 const MONGO_DB_USER  = 'johntorresmaster';
-const MONGO_DB_PASSWORD = '';
+const MONGO_DB_PASSWORD = '%Teslamodel3%';
 
-var MONGO_URL = "mongodb+srv://clustermartinas.cbu5s.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+const MONGO_URL = "mongodb+srv://clustermartinas.cbu5s.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
 
 mongoose.connect(MONGO_URL, {
   auth: {
@@ -16,7 +16,7 @@ mongoose.connect(MONGO_URL, {
    useUnifiedTopology : true
 });
 
-const products = [
+let products = [
     
     new Product({
         imagePath: "images/1.jpg",
@@ -36,7 +36,7 @@ const products = [
 
 let done = 0;
 
-for (var i = 0; i < products.length; i++){
+for (let i = 0; i < products.length; i++){
     products[i].save( function(err, results){
         done++;
         if (done === products.length){

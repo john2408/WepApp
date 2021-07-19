@@ -1,44 +1,33 @@
 
+// load env variables
+require('dotenv').config();
+
 // Packages Load
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
-var expressHsb = require('express-handlebars');
-var mongoose = require('mongoose');
-const Handlebars = require('handlebars')
+const createError = require('http-errors');
+const express = require('express');
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
+const expressHsb = require('express-handlebars');
+const mongoose = require('mongoose');
+const Handlebars = require('handlebars');
+const connectDB = require('./config/db');
 
 
-var indexRouter = require('./routes/index');
+
+const indexRouter = require('./routes/index');
 
 // Create Express App object
-var app = express();
+const app = express();
 
 // view engine setup
 app.engine('.hbs', 
     expressHsb({defaultLayout: 'layout', extname: '.hbs'}), 
 );
 
-
-const MONGO_DB_USER  = 'johntorresmaster'
-const MONGO_DB_PASSWORD = ''
-
-var MONGO_URL = "mongodb+srv://clustermartinas.cbu5s.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
-
-mongoose.connect(MONGO_URL, {
-  auth: {
-    user: MONGO_DB_USER,
-    password: MONGO_DB_PASSWORD
-  },
-   useNewUrlParser: true , 
-   useUnifiedTopology : true
-});
-
-
+connectDB();
 
 app.set('view engine', '.hbs');
-
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -67,8 +56,10 @@ app.use(function(err, req, res, next) {
 });
 
 
+let listener = app.listen(8080, function(){
+    console.log('Listening on port ' + listener.address().port); //Listening on port 8888
+});
 
-
-app.listen(8080, () => {console.log("server is starting at port ", 8080) });
+console.log("server is starting at port " + app.get('port'))
 
 module.exports = app;

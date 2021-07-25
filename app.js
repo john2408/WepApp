@@ -12,6 +12,9 @@ const expressHsb = require('express-handlebars');
 const mongoose = require('mongoose');
 const Handlebars = require('handlebars');
 const connectDB = require('./config/db');
+const session = require('express-session');
+const passport = require('passport');
+const flash = require('connect-flash');
 
 
 
@@ -25,13 +28,21 @@ app.engine('.hbs',
     expressHsb({defaultLayout: 'layout', extname: '.hbs'}), 
 );
 
+// Connecto to Mongo DB
 connectDB();
+
+// run config setup for User and Password Encryption
+require('./config/passport');
 
 app.set('view engine', '.hbs');
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(session({secret: process.env.SUPER_SECRET, resave: false, saveUninitialized: false}));
+app.use(flash())
+app.use(passport.initialize());
+app.use(passport.session());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
@@ -55,6 +66,7 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
+//process.env.PORT_B
 
 let listener = app.listen(8080, function(){
     console.log('Listening on port ' + listener.address().port); //Listening on port 8888

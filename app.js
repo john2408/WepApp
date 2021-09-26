@@ -17,6 +17,7 @@ const passport = require('passport');
 const flash = require('connect-flash');
 const validator = require('express-validator');
 const indexRouter = require('./routes/index');
+const userRoutes = require('./routes/userRoutes.js')
 
 // Create Express App object
 const app = express();
@@ -44,7 +45,18 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(express.static(path.join(__dirname, 'public')));
 
+// Set Global Variable for authentication
+app.use(function(req, res, next){
+  res.locals.login = req.isAuthenticated();
+  next();
+});
+
+// Check User if redirecting to User Profile
+app.use('/user', userRoutes);
+
+// Check Prefix to go to main page
 app.use('/', indexRouter);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

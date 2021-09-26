@@ -1,35 +1,38 @@
 const Product = require('../models/product');
 const mongoose = require('mongoose');
+const connectDB = require('../config/db');
 
 
-const MONGO_DB_USER  = 'johntorresmaster';
-const MONGO_DB_PASSWORD = '%Teslamodel3%';
-
-const MONGO_URL = "mongodb+srv://clustermartinas.cbu5s.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
-
-mongoose.connect(MONGO_URL, {
-  auth: {
-    user: MONGO_DB_USER,
-    password: MONGO_DB_PASSWORD
-  },
-   useNewUrlParser: true , 
-   useUnifiedTopology : true
-});
+connectDB();
 
 let products = [
     
     new Product({
-        imagePath: "images/1.jpg",
-        title: "Desayuno sorpresa Dinosaurio",
-        description: "Desayuno sorpresa estilo dinosaurio.",
+        imagePath: "images/3.jpg",
+        title: "Merienda Sorpresa dorado",
+        description: "Merienda sorpresa con fruta.",
+        price: 75000
+    }),
+
+    new Product({
+        imagePath: "images/4.jpg",
+        title: "Merienda Sorpresa Hombre",
+        description: "Merienda Sorpresa estilo plateado y azúl.",
+        price: 65000
+    }),
+
+    new Product({
+        imagePath: "images/5.jpg",
+        title: "Merienda Sorpresa Soldado",
+        description: "Merienda Sorpresa estilo soldado.",
         price: 55000
     }),
 
     new Product({
-        imagePath: "images/2.jpg",
-        title: "Desayuno sorpresa Deluxe",
-        description: "Desayuno sorpresa con globo, tarjeta y fotos personalizadas.",
-        price: 55000
+        imagePath: "images/6.jpg",
+        title: "Pequena merienda sorpresa Graduación",
+        description: "Merienda sorpresa para graduación.",
+        price: 65000
     }),
 
 ];

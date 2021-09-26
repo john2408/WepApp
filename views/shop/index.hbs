@@ -1,13 +1,29 @@
 {{# each products }}
+<div class="row">
   {{# each this }}
-    
-    <h5> G {{ this.price }}</h5>
-    !Hello
+  <div class="col-sm-6 col-md-4">
+
+    <div class="thumbnail">
+      <img src="{{this.imagePath}}">
+      <div class="caption">
+        <h3>{{this.title}}</h3>
+        <p class= "description">{{this.description}}</p>
+        <div class="clearfix">
+            <div class="price pull-left"> {{ this.price }} COP</div>
+            <a href="/add-to-cart/" class="btn btn-success pull-right" role="button">Comprar</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
   {{/ each }}
+
+
+</div>
 {{/ each }}
 
 
-
+{{!-- 
 <div class="row">
   <div class="col-sm-6 col-md-4">
     <div class="thumbnail">
@@ -18,7 +34,7 @@
         
         <div class="clearfix">
             <div class="price pull-left"> $ 55.000 COP</div>
-            <a href="#" class="btn btn-success pull-right" role="button">Comprar</a>
+            <a href="/add-to-cart/" class="btn btn-success pull-right" role="button">Comprar</a>
         </div>
 
       </div>
@@ -33,7 +49,7 @@
         <p class= "description">...</p>
         <div class="clearfix">
             <div class="price pull-left"> $ 55.000 COP</div>
-            <a href="#" class="btn btn-success pull-right" role="button">Comprar</a>
+            <a href="/add-to-cart/" class="btn btn-success pull-right" role="button">Comprar</a>
         </div>
       </div>
     </div>
@@ -47,7 +63,7 @@
         <p class= "description">...</p>
         <div class="clearfix">
             <div class="price pull-left"> $ 55.000 COP</div>
-            <a href="#" class="btn btn-success pull-right" role="button">Comprar</a>
+            <a href="/add-to-cart/" class="btn btn-success pull-right" role="button">Comprar</a>
         </div>
       </div>
     </div>
@@ -57,17 +73,7 @@
 
 <div class="row">
     <div class="col-sm-6 col-md-4">
-    <div class="thumbnail">
-      <img src="images/4.jpg">
-      <div class="caption">
-        <h3>Producto 4</h3>
-        <p class= "description">...</p>
-        <div class="clearfix">
-            <div class="price pull-left"> $ 55.000 COP</div>
-            <a href="#" class="btn btn-success pull-right" role="button">Comprar</a>
-        </div>
-      </div>
-    </div>
+    
   </div>
 
   <div class="col-sm-6 col-md-4">
@@ -78,7 +84,7 @@
         <p class= "description">...</p>
         <div class="clearfix">
             <div class="price pull-left"> $ 55.000 COP</div>
-            <a href="#" class="btn btn-success pull-right" role="button">Comprar</a>
+            <a href="/add-to-cart/" class="btn btn-success pull-right" role="button">Comprar</a>
         </div>
       </div>
     </div>
@@ -92,10 +98,10 @@
         <p class= "description">...</p>
         <div class="clearfix">
             <div class="price pull-left"> $ 55.000 COP</div>
-            <a href="#" class="btn btn-success pull-right" role="button">Comprar</a>
+            <a href="/add-to-cart/" class="btn btn-success pull-right" role="button">Comprar</a>
         </div>
       </div>
     </div>
   </div>
   
-</div>
+</div> --}}

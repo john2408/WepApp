@@ -3,9 +3,9 @@ module.exports = function Cart(oldCart){
     //This is a javascript object
 
     // Define Properties
-    this.items = oldCart.items;
-    this.totalQty = oldCart.totalQty;
-    this.totalPrice = oldCart.totalPrice;
+    this.items = oldCart.items || {};
+    this.totalQty = oldCart.totalQty || 0;
+    this.totalPrice = oldCart.totalPrice || 0;
     
 
     // Method 1: Function to add new item to old cart
@@ -25,7 +25,7 @@ module.exports = function Cart(oldCart){
 
         // Update total quantity and price
         this.totalQty++;
-        this.totalPrice += storedItem.price;
+        this.totalPrice += storedItem.price ;
 
 
     };

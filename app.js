@@ -45,8 +45,8 @@ app.use(cookieParser());
 app.use(session({secret: process.env.SUPER_SECRET, 
                 resave: false, 
                 saveUninitialized: false, 
-                store: MongoStore.create({ mongooseConnection: mongoose.connection}),
-                cookie: {maxAge: 180 * 60 *1000} // 180 Minutes
+                store: new MongoStore({  mongooseConnection: mongoose.connection}),
+                cookie: {maxAge: 180 * 60 *1000} // 180 Minutes 
               }));
 app.use(flash())
 app.use(passport.initialize());

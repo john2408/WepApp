@@ -27,10 +27,12 @@ router.get('/', function(req, res, next) {
   
 });
 
-route.get('/add-to-cart/:id', function (req, res, next) {
-  let productID = req.params.id;
+router.get('/add-to-cart/:id', function (req, res, next) {
+
+  let productId = req.params.id;
+
   // Get cart object, if not available return empty dict
-  let cart = new Cart(req.session.cart ? req.sesssion.cart : {})
+  let cart = new Cart(req.session.cart ? req.session.cart : {});
 
   Product.findById(productId, function(err, product){
 
@@ -45,7 +47,7 @@ route.get('/add-to-cart/:id', function (req, res, next) {
     // Update cart in user's session
     req.session.cart = cart;
 
-    console.log(cart)
+    console.log(cart);
 
     res.redirect('/');
 

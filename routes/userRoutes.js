@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const csrf = require('csurf');
 const passport = require('passport');
-const { route } = require('.');
+//const { route } = require('.');
 
 
 let csrfProtection = csrf();
@@ -59,8 +59,6 @@ router.post('/signin', passport.authenticate('local.signin', {
   failureRedirect: '/user/signin',
   failureFlash: true
 }));
-
-
 
 
 

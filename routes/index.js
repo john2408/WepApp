@@ -13,9 +13,11 @@ router.get('/', function(req, res, next) {
     let productChunk = [];
     let chunkSize = 3;
 
+
+    console.log("Trying to get data");
     for (let i = 0; i < docs.length; i += chunkSize){
-      //console.log(docs[0]);
-      //console.log(docs[1]);
+      console.log(docs[0]);
+      console.log(docs[1]);
       productChunk.push(docs.slice(i, i + chunkSize));
       console.log(productChunk[0][0].imagePath);
     };

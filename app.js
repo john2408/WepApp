@@ -60,6 +60,7 @@ app.use(function(req, res, next){
   next();
 });
 
+
 // Check User if redirecting to User Profile
 app.use('/user', userRoutes);
 
@@ -93,5 +94,7 @@ let listener = app.listen(8080, function(){
 });
 
 console.log("server is starting at port " + app.get('port'))
+
+
 
 module.exports = app;

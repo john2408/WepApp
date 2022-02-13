@@ -6,12 +6,14 @@ const passport = require('passport');
 
 
 let csrfProtection = csrf();
+
 router.use(csrfProtection);
 
 // Check if user is loggedin, if so redirect to user profile
 router.get('/profile', isLoggedIn , function(req, res, next){
   res.render('user/profile');
 })
+
 
 // User Logout
 router.get('/logout', isLoggedIn,  function(req, res, next){

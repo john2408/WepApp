@@ -19,7 +19,10 @@ module.exports = function Cart(oldCart){
                                         qty : 0,
                                         price : 0}
         }
+        
+        // Then increment quantity
         // Update item quantity and price
+        // This also applies to the 'else' case for exiting items
         storedItem.qty++;
         storedItem.price = storedItem.item.price * storedItem.qty;
 

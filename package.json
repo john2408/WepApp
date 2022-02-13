@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "@handlebars/allow-prototype-access": "^1.0.5",
+    "@stripe/stripe-js": "^1.22.0",
     "bcrypt-nodejs": "0.0.3",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
@@ -27,6 +28,7 @@
     "mongoose": "^5.13.2",
     "morgan": "~1.9.1",
     "passport": "^0.4.1",
-    "passport-local": "^1.0.0"
+    "passport-local": "^1.0.0",
+    "three": "^0.135.0"
   }
 }

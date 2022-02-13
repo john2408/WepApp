@@ -29,6 +29,8 @@ router.get('/', function(req, res, next) {
   
 });
 
+
+// Push selected products
 router.get('/add-to-cart/:id', function (req, res, next) {
 
   let productId = req.params.id;
@@ -38,7 +40,7 @@ router.get('/add-to-cart/:id', function (req, res, next) {
 
   Product.findById(productId, function(err, product){
 
-    // Check fore errors
+    // Check for errors
     if (err){
       return res.redirect('/');
     }
@@ -51,6 +53,7 @@ router.get('/add-to-cart/:id', function (req, res, next) {
 
     console.log(cart);
 
+    // Redirect to products' page
     res.redirect('/');
 
   });
@@ -61,10 +64,24 @@ router.get('/shopping-cart/', function(req, res, next){
   if (!req.session.cart){
     return res.render('shop/shopping-cart', {products:null});
   }
+
   let cart = new Cart(req.session.cart);
   res.render('shop/shopping-cart', {products: cart.generateArray() , 
                                     totalPrice: cart.totalPrice});
 
 });
+
+router.get('/checkout', function(req, res, next) {
+
+  if (!req.session.cart){
+    return res.redirect('shop/shopping-cart');
+  }
+  let cart = new Cart(req.session.cart);
+
+  res.render('shop/checkout', {total: cart.totalPrice})
+
+});
+
+
 
 module.exports = router;

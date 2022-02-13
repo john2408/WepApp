@@ -54,12 +54,12 @@ app.use(passport.session());
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Set Global Variable for authentication
+// to have it available in all views/
 app.use(function(req, res, next){
   res.locals.login = req.isAuthenticated();
   res.locals.session = req.session;
   next();
 });
-
 
 // Check User if redirecting to User Profile
 app.use('/user', userRoutes);

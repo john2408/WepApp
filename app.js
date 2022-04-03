@@ -10,7 +10,6 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const expressHsb = require('express-handlebars');
 const mongoose = require('mongoose');
-const Handlebars = require('handlebars');
 const connectDB = require('./config/db');
 const session = require('express-session');
 const passport = require('passport');
@@ -37,6 +36,7 @@ connectDB();
 require('./config/passport');
 
 app.set('view engine', '.hbs');
+
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));

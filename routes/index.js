@@ -30,6 +30,7 @@ router.get('/', function(req, res, next) {
 });
 
 
+
 // Push selected products
 router.get('/add-to-cart/:id', function (req, res, next) {
 
@@ -56,9 +57,15 @@ router.get('/add-to-cart/:id', function (req, res, next) {
     // Redirect to products' page
     res.redirect('/');
 
+    // Render Product Description page
+    //res.render('shop/product-personalize', {});
+
+    
   });
 
+
 });
+
 
 router.get('/shopping-cart/', function(req, res, next){
   if (!req.session.cart){
@@ -82,6 +89,29 @@ router.get('/checkout', function(req, res, next) {
 
 });
 
+router.get('/send-order', function(req, res, next) {
+
+  if (!req.session.cart){
+    return res.redirect('shop/shopping-cart');
+  }
+
+  let cart = new Cart(req.session.cart);
+
+  res.render('shop/send-order', {total: cart.totalPrice})
+
+});
+
+router.get('/customize', function(req, res, next) {
+
+  if (!req.session.cart){
+    return res.redirect('shop/shopping-cart');
+  }
+
+  let cart = new Cart(req.session.cart);
+
+  res.render('shop/customize', {total: cart.totalPrice})
+
+});
 
 
 module.exports = router;

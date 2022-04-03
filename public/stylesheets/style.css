@@ -4,6 +4,18 @@
     margin : auto;  
 }
 
+.cart_img{
+    max-height: 200px; 
+    display : block;
+    margin : auto;  
+}
+
+#inner {
+    display: table;
+    margin: 3px auto;
+}
+
+
 .thumbnail img{
     max-height: 300px;   
 }

@@ -7,19 +7,105 @@
                 <li class = 'list-group-item'>
                     <span class="badge">{{this.qty}} </span>
                     <strong> {{this.item.title}} </strong>
-                        <div class="cart">
-                            <img src="{{this.item.imagePath}}">
+                        <div >
+                            <img src="{{this.item.imagePath}}" class="cart_img">
                         </div>
-                        <div>
+                        <div id = "inner">
                             <span class="label label-success">{{this.price}}</span>
                         </div>
-                    <div class="btn-group">
+                        
+                        <div class="btn-group" id = "inner">
                         <button class="btn btn-primary btn-xs dropdown-toggle" type = "button" data-toggle = "dropdown"> Action <span class="caret"></span></button>
                             <ul class="dropdown-menu">
                                 <li> <a href = "#"> Reducir Cantidad</a></li>
                                 <li> <a href = "#"> Remover </a></li>
                             </ul>
-                    </div>
+                        </div>
+                        
+
+                       <form id="checkout-form">
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <div class="form-group">
+                                        <label for="name">Nombre de quién Envia:</label>
+                                        <input type="text" id="sender_name" class="form-control" >
+                                    </div>
+                                </div>
+                                <div class="col-xs-12">
+                                    <div class="form-group">
+                                        <label for="name">Telefono de quién Envia:</label>
+                                        <input type="text" id="sender_phonenumber" class="form-control" >
+                                    </div>
+                                </div>
+                                <div class="col-xs-12">
+                                    <div class="form-group">
+                                        <label >Nombre de quién Recibe:</label>
+                                        <input type="text" id="recipient_name" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-xs-12">
+                                    <div class="form-group">
+                                        <label >Dirección de Entrega:</label>
+                                        <input type="text" id="delivery_address" class="form-control" required>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12">
+                                    <div class="form-group">
+                                        <label >Mensaje:</label>
+                                        <input type="text" id="message" class="form-control" required>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12">
+                                    <div class="form-group">
+                                        <label >Motivo:</label>
+                                        <input type="text" id="motive" class="form-control" required>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12">
+                                    <div class="row">
+                                        <div class="col-xs-6">
+                                            <div class="form-group">
+                                                <label >De:</label>
+                                                <input type="text" id="from" class="form-control" required>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-xs-6">
+                                            <div class="form-group">
+                                                <label for="card-expiry-year">Para:</label>
+                                                <input type="text" id="to" class="form-control" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12">
+                                    <div class="row">
+                                        <div class="col-xs-6">
+                                            <div class="form-group">
+                                                <label >Hora de Entrega:</label>
+                                                <input type="text" id="delivery_time" class="form-control" required>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-xs-6">
+                                            <div class="form-group">
+                                                <label >Teléfono:</label>
+                                                <input type="text" id="phone_number2" class="form-control" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12">
+                                    <div class="form-group">
+                                        <label for="card-cvc">Comentarios:</label>
+                                        <input type="text" id="card-cvc" class="form-control" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--button type="submit" class="btn btn-success" >Enviar Pedido</button-->
+                    </form>
+
+                    
                 </li>
                 {{/each}}
             </ul>
@@ -36,13 +122,13 @@
 
     <div class="row">
         <div class="col-xs-12">
-            <div class="row">
+            <div class="row" id = "inner">
                 <div class="col-xs-6">
                     <div class="form-group">
                         <a href="/send-order" type = "button" class = "btn btn-success">Enviar Pedido</a>
                     </div>
                 </div>
-                <div class="col-xs-6">
+                <div class="col-xs-6" id = "inner">
                     <div class="form-group">
                         <a href="/customize" type = "button" class = "btn btn-success">Personaliza tu Pedido</a>
                     </div>

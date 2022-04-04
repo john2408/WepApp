@@ -15,6 +15,14 @@
     margin: 3px auto;
 }
 
+#price {
+  display : block;
+  margin: 10px auto;
+  font-weight: bold;
+  font-size: 20px;
+  color:rgb(10, 211, 13)
+}
+
 
 .thumbnail img{
     max-height: 300px;   
